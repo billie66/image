@@ -16,3 +16,4 @@
 /tmp
 database.yml
 secrets.yml
+/public/uploads

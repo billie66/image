@@ -9,6 +9,14 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
   def create
+    @course = Course.new(course_params)
 
+    @course.save
+    redirect_to @course
   end
+end
+
+private
+def course_params
+  params.require(:course).permit(:name, :cover)
 end
