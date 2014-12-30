@@ -1,3 +1,3 @@
 class Course < ActiveRecord::Base
-  mount_uploader :cover, :CoverUploader
+  mount_uploader :cover, CoverUploader
 end
