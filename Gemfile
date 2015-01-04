@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 # Upload images
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '3.7.0', require: false
+
+ gem 'jquery-fileupload-rails'

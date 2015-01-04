@@ -13,3 +13,54 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+
+html, body {
+  background: #EFEFEF;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 900px;
+  min-height: 300px;
+  margin: 100px auto;
+  background: #FFF;
+}
+.form-wrapper {
+  width: 300px;
+  margin: 0 auto;
+  padding: 30px;
+}
+.content {
+  padding: 50px 0;
+}
+.course {
+  width: 300px;
+  float: left;
+  text-align: center;
+}
+.course img {
+  margin: 10px 30px;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+.new-course {
+  text-align: center;
+  padding-bottom: 50px;
+}
