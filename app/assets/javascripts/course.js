@@ -1,3 +1,5 @@
 $(function() {
-  return $('.new-course').fileupload();
+  return $('.new-course').fileupload({
+    dataType: "script"
+  });
 });
