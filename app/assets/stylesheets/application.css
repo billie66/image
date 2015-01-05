@@ -60,6 +60,9 @@ html, body {
   padding: 15px;
   border: 1px solid #ddd;
 }
+.course .name {
+  padding: 10px 0;
+}
 .new-course {
   text-align: center;
   padding-bottom: 50px;

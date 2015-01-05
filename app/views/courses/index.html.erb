@@ -1,10 +1,5 @@
-<div class="content clearfix">
-  <% @courses.each do |c| %>
-    <div class="course">
-      <%= image_tag c.cover_url(:thumb) %>
-      <h3><%= c.name %></h3>
-    </div>
-  <% end %>
+<div class="content clearfix" id="courses">
+  <%= render @courses %>
 </div>
 
 <%= form_for Course.new, html: {class: "new-course"} do |f| %>

@@ -1,0 +1,5 @@
+<% if @course.new_record? %>
+  alert("Failed to upload course: <%= j @course.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $("#courses").append("<%= j render(@course) %>");
+<% end %>
