@@ -1,0 +1,14 @@
+<h1>Crop Avatar</h1>
+<div class="clearfix">
+  <div class="course">
+    <%= image_tag @course.cover_url(:large), id: "cropbox" %>
+  </div>
+</div>
+<%= form_for @course do |f| %>
+  <% %w[x y w h].each do |attribute| %>
+    <%= f.hidden_field "crop_#{attribute}" %><br>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Crop", class: "crop-btn button primary" %>
+  </div>
+<% end %>
