@@ -3,6 +3,8 @@
 </div>
 
 <%= form_for Course.new, html: {class: "new-course"} do |f| %>
-  <%= f.label :cover, "Upload course covers:" %>
-  <%= f.file_field :cover, multiple: true, name: "course[cover]" %>
+  <div class="fileupload-btn button primary">
+    <%= f.label :cover, "Upload course covers" %>
+    <%= f.file_field :cover, multiple: true, name: "course[cover]" %>
+  </div>
 <% end %>
