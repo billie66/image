@@ -8,6 +8,8 @@ $(function(){
 
   $('#cropbox').Jcrop({
     bgColor: '',
+    aspectRatio: 1,
+    setSelect: [0, 0, 200, 236],
     onChange: showCoords,
     onSelect: showCoords
   });
