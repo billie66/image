@@ -49,6 +49,8 @@ GEM
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jcrop-rails-v2 (0.9.12.3)
+    jquery-colorbox-rails (0.2.1)
+      railties (>= 3.1, <= 5.0)
     jquery-fileupload-rails (0.4.1)
       actionpack (>= 3.1)
       railties (>= 3.1)
@@ -124,6 +126,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
   jcrop-rails-v2 (~> 0.9.12)
+  jquery-colorbox-rails
   jquery-fileupload-rails
   jquery-rails
   mini_magick (= 3.7.0)

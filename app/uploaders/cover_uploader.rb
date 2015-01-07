@@ -1,6 +1,11 @@
 # encoding: utf-8
 
 class CoverUploader < CarrierWave::Uploader::Base
+  include UploaderHelper
+
+  include CarrierWave::MimeTypes
+  process :set_content_type
+
   # Include RMagick or MiniMagick support:
   include CarrierWave::MiniMagick
 
@@ -10,7 +15,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/"
   end
 
   # Create different versions of your uploaded files:

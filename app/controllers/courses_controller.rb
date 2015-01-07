@@ -12,18 +12,10 @@ class CoursesController < ApplicationController
   end
 
   def create
-    respond_to do |format|
-      format.html {
-        @course = Course.new(course_params)
-        if @course.save
-          if params[:course][:cover].present?
-            render 'crop'
-          else
-            redirect_to @course
-          end
-        end
-      }
-      format.js { @course = Course.create(course_params) }
+    @course = Course.new(course_params)
+    @course.image_data = params[:course][:cover]
+    if @course.save
+      redirect_to @course
     end
   end
 

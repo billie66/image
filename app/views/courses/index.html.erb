@@ -2,9 +2,31 @@
   <%= render @courses %>
 </div>
 
-<%= form_for Course.new, html: {class: "new-course"} do |f| %>
+<div class="fileupload-wrapper">
   <div class="fileupload-btn button primary">
-    <%= f.label :cover, "Upload course covers" %>
-    <%= f.file_field :cover, multiple: true, name: "course[cover]" %>
+    <%= label_tag :cover, "Upload course covers" %>
+    <%= file_field_tag :cover, id: "fileupload" %>
   </div>
-<% end %>
+</div>
+
+<div style="display: none;">
+  <div id="course-crop-modal" class="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-label">Crop cover</h3>
+    </div>
+    <div class="modal-body">
+      <div class="course-crop-box">
+        <%= image_tag '', :id => "course-cropbox" %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= form_for Course.new do |f| %>
+        <% %w[x y w h].each do |attribute| %>
+          <%= f.hidden_field "crop_#{attribute}" %><br>
+        <% end %>
+        <%= f.hidden_field :cover, :id => "course_dataurl" %>
+        <%= f.submit "Crop and save", :id => "course-crop-form", :class => "button primary right" %>
+      <% end %>
+    </div>
+  </div>
+</div>

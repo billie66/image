@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.Jcrop
+//= require jquery.colorbox
 //= require jquery-fileupload/basic
 //= require turbolinks
 //= require_tree .

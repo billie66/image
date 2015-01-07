@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require jquery.Jcrop
+ *= require jquery.colorbox-example1
  *= require_tree .
  *= require_self
  */
@@ -64,7 +65,7 @@ html, body {
 .course .name {
   padding: 10px 0;
 }
-.new-course {
+.fileupload-wrapper {
   text-align: center;
   padding-bottom: 50px;
 }

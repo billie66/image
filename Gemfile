@@ -21,3 +21,6 @@ gem 'jquery-fileupload-rails'
 
 # Crop images
 gem 'jcrop-rails-v2', '~> 0.9.12'
+
+# A jQuery lightbox
+gem 'jquery-colorbox-rails'
