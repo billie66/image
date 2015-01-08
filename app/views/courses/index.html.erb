@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <%= form_for Course.new do |f| %>
+      <%= form_for Course.new, remote: true do |f| %>
         <% %w[x y w h].each do |attribute| %>
           <%= f.hidden_field "crop_#{attribute}" %><br>
         <% end %>

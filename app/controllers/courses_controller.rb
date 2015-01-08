@@ -14,9 +14,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     @course.image_data = params[:course][:cover]
-    if @course.save
-      redirect_to @course
-    end
+    @course.save
   end
 
   def edit
