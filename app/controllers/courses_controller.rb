@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+  before_action :find_course, only: [:show, :edit, :update]
+
   def index
     @courses = Course.all
   end
@@ -8,7 +10,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:id])
   end
 
   def create
@@ -18,11 +19,9 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:id])
   end
 
   def update
-    @course = Course.find(params[:id])
     if @course.update(course_params)
       if params[:course][:cover].present?
         render 'crop'
@@ -36,6 +35,11 @@ class CoursesController < ApplicationController
 end
 
 private
+
+def find_course
+  @course = Course.find(params[:id])
+end
+
 def course_params
   params.require(:course).permit(:name, :cover, :crop_x, :crop_y, :crop_w, :crop_h)
 end
