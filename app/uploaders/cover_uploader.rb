@@ -18,19 +18,17 @@ class CoverUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/"
   end
 
+  #process :resize_to_fit => [400, 472]
+  process :crop
+
   # Create different versions of your uploaded files:
   version :thumb do
-    process :crop
     process :resize_to_fill => [200, 236]
-  end
-
-  version :large do
-    process :resize_to_limit => [600, 708]
   end
 
   def crop
     if model.crop_x.present?
-      resize_to_limit(600, 708)
+      resize_to_fit(400, 472)
       manipulate! do |img|
         x = model.crop_x.to_i
         y = model.crop_y.to_i

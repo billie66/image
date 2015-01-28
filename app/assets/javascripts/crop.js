@@ -35,7 +35,7 @@ $(function() {
         onChange: update_crop,
         onSelect: update_crop,
         setSelect: [0, 0, 200, 236],  //设置一个初选框的位置
-        aspectRatio: 1,  //设置选择框高宽比,默认为任意
+        //aspectRatio: 1,  //设置选择框高宽比,默认为任意
         bgColor: 'white'
         }, function(){
         jcrop_api = this;

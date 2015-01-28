@@ -61,6 +61,8 @@ html, body {
   margin: 10px 30px;
   padding: 15px;
   border: 1px solid #ddd;
+  width: 200px;
+  height: 236px;
 }
 .course .name {
   padding: 10px 0;
