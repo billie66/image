@@ -39,8 +39,11 @@
 
 .course-crop-box {
   box-sizing: content-box;
-  width: 400px;
-  height: 472px;
+  width: 300px !important;
+  height: 300px !important;
   margin: 0 auto;
-  img { max-width: 400px; max-height: 472px; }
+  img {
+    max-width: 300px;
+    max-height: 300px;
+  }
 }
