@@ -27,6 +27,8 @@ class CoverUploader < CarrierWave::Uploader::Base
 
   def crop
     if model.crop_x.present?
+      # The two sizes must be proper, here a little bit bigger than 175*2,
+      # otherwise can not get the right area of images when cropped
       resize_to_fit(300, 300)
       manipulate! do |img|
         x = model.crop_x.to_i
