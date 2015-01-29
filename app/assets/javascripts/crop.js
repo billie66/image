@@ -26,7 +26,14 @@ $(function() {
       init_jcrop();
     }
 
-    $.colorbox({href:'#course-crop-modal', inline:true});
+    $.colorbox({
+      href: '#course-crop-modal',
+      inline: true,
+      onClosed: function(){
+        $("#course-cropbox").removeAttr("src");
+        $("#course-cropbox").removeAttr("style");
+      }
+    });
   }
 
   function init_jcrop() {
@@ -51,6 +58,6 @@ $(function() {
   }
 
   $('.modal-footer form').submit(function() {
-    $(this).find("input[type='submit']").prop('disabled',true);
+    $("#course-crop-btn").prop('disabled', true);
   });
 });
