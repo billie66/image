@@ -68,8 +68,20 @@ MiniMagick 依赖于 ImageMagick 命令行工具，所以要先安装 ImageMagic
 
 ### 用户交互界面
 
-先创建 course controller，运行：
+先创建 courses 控制器，运行：
 
     rails g controller courses index show new create
 
-这里主要注意的是
+同时定义了四个方法，因 Rails 4 中使用白名单机制，传给控制器的参数必须明确指出哪些是可以赋值的。
+
+用户上传图片，是通过表单提交给服务器的。那看一下文件上传表单：
+
+    <%= form_for @course do |f| %>
+      <%= f.file_field :cover %>
+    <% end %>
+
+代码参考自 Rails 官方文档 [Uploading Files](http://guides.rubyonrails.org/form_helpers.html#uploading-files)。
+
+最后说一下操作流程，在本地把应用跑起来之后，访问 `localhost:3000/courses/new` 页面创建一门新课程，
+课程创建成功后，会跳转到新建课程的展示页面，就能看到刚上传图片的 thumbnail 版本（200*200）。
+
