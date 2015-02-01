@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.Jcrop
+//= require jquery.Jcrop.min
 //= require jquery.colorbox
 //= require jquery-fileupload/basic
 //= require turbolinks
