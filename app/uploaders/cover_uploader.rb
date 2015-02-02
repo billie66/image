@@ -27,7 +27,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb do
     process :crop
-    process :resize_to_fill => [100, 100]
+    process :resize_to_fill => [172, 172]
   end
 
   def crop

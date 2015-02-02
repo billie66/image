@@ -12,7 +12,7 @@ module UploaderHelper
         model.read_attribute(mounted_as)
       else
         hashed_name = Digest::MD5.hexdigest(File.dirname(current_path))[5..15]
-        "#{hashed_name}.#{file.extension}"
+        "#{hashed_name}.png"
       end
     end
   end
