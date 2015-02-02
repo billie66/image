@@ -2,7 +2,7 @@ class Course < ActiveRecord::Base
   mount_uploader :cover, CoverUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
-  before_create :crop_cover, :cover_name
+  after_update :crop_cover
 
   def cover_name
       self.name ||= File.basename(cover.filename, '.*').titleize if cover

@@ -8,8 +8,12 @@ module UploaderHelper
 
   def filename
     if original_filename.present?
-      hashed_name = Digest::MD5.hexdigest(File.dirname(current_path))[5..15]
-      "#{hashed_name}.#{file.extension}"
+      if model && model.read_attribute(mounted_as).present?
+        model.read_attribute(mounted_as)
+      else
+        hashed_name = Digest::MD5.hexdigest(File.dirname(current_path))[5..15]
+        "#{hashed_name}.#{file.extension}"
+      end
     end
   end
 end

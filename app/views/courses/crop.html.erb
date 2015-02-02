@@ -1,14 +1,33 @@
-<h1>Crop Avatar</h1>
+<h1>Crop Course Cover</h1>
 <div class="clearfix">
-  <div class="course">
+  <div class="edit-course">
     <%= image_tag @course.cover_url(:large), id: "cropbox" %>
   </div>
 </div>
 <%= form_for @course do |f| %>
   <% %w[x y w h].each do |attribute| %>
-    <%= f.hidden_field "crop_#{attribute}" %><br>
+    <%= f.label "#{attribute}" %>
+    <%= f.text_field "crop_#{attribute}" %><br>
   <% end %>
   <div class="actions">
     <%= f.submit "Crop", class: "crop-btn button primary" %>
   </div>
+<% end %>
+
+<% content_for :template_js do %>
+<script>
+  $("#cropbox").Jcrop({
+    onChange: update_crop,
+    onSelect: update_crop,
+    setSelect: [0, 0, 600, 600],  //设置一个初选框的位置
+    aspectRatio: 1,  //设置选择框高宽比,默认为任意
+    bgColor: 'white'
+  })
+  function update_crop(coords) {
+    $("#course_crop_x").val(Math.round(coords.x));
+    $("#course_crop_y").val(Math.round(coords.y));
+    $("#course_crop_w").val(Math.round(coords.w));
+    $("#course_crop_h").val(Math.round(coords.h));
+  }
+</script>
 <% end %>
