@@ -34,7 +34,7 @@
 选择好合适的裁剪区域之后，点击裁剪按钮，这时会执行一个 callback：
 
     def crop_cover
-      cover.recreate_versions! if crop_x.present?
+      cover.recreate_versions!(:thumb) if crop_x.present?
     end
 
 根据裁剪区域重新生成图片的 thumb 版本。
