@@ -5,7 +5,7 @@ class Course < ActiveRecord::Base
   after_update :crop_cover
 
   def crop_cover
-    cover.recreate_versions! if crop_x.present?
+    cover.recreate_versions!(:thumb) if crop_x.present?
   end
 
 # mothod to convert base64 image data url to binary image
@@ -16,7 +16,6 @@ class Course < ActiveRecord::Base
     # decode data and create stream on them
     io = CarrierStringIO.new(Base64.decode64(realdata))
 
-    # this will do the thing (avatar is mounted carrierwave uploader)
     self.cover = io
   end
 end

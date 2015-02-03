@@ -18,6 +18,8 @@ class CoverUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/"
   end
 
+  process :crop_with_colorbox
+
   version :large do
     process :resize_to_limit => [600, 600]
   end
@@ -28,19 +30,30 @@ class CoverUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [172, 172]
   end
 
+  def crop_image
+    manipulate! do |img|
+      x = model.crop_x.to_i
+      y = model.crop_y.to_i
+      w = model.crop_w.to_i
+      h = model.crop_h.to_i
+      img.crop("#{w}x#{h}+#{x}+#{y}")
+      img
+    end
+  end
+
   def crop
     if model.crop_x.present?
       # The two size must keep the same with the image visual area,
       # otherwise can not get the right part of the image when cropped
       resize_to_limit(600, 600)
-      manipulate! do |img|
-        x = model.crop_x.to_i
-        y = model.crop_y.to_i
-        w = model.crop_w.to_i
-        h = model.crop_h.to_i
-        img.crop("#{w}x#{h}+#{x}+#{y}")
-        img
-      end
+      crop_image
+    end
+  end
+
+  def crop_with_colorbox
+    if model.crop_x.present?
+      resize_to_fit(300, 300)
+      crop_image
     end
   end
 
