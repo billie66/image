@@ -4,6 +4,7 @@
     <%= image_tag @course.cover_url(:large), id: "cropbox" %>
   </div>
 </div>
+
 <%= form_for @course do |f| %>
   <% %w[x y w h].each do |attribute| %>
     <%= f.label "#{attribute}" %>
@@ -21,7 +22,7 @@
     onSelect: update_crop,
     setSelect: [0, 0, 600, 600],  //设置一个初选框的位置
     aspectRatio: 1,  //设置选择框高宽比,默认为任意
-    bgColor: 'white'
+    bgColor: 'white' // deal with images with png format, default is black
   })
   function update_crop(coords) {
     $("#course_crop_x").val(Math.round(coords.x));

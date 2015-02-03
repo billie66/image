@@ -18,8 +18,6 @@ class CoverUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/"
   end
 
-  #process :crop
-
   version :large do
     process :resize_to_limit => [600, 600]
   end
@@ -45,6 +43,7 @@ class CoverUploader < CarrierWave::Uploader::Base
       end
     end
   end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list

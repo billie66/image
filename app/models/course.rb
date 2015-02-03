@@ -4,10 +4,6 @@ class Course < ActiveRecord::Base
 
   after_update :crop_cover
 
-  def cover_name
-      self.name ||= File.basename(cover.filename, '.*').titleize if cover
-  end
-
   def crop_cover
     cover.recreate_versions! if crop_x.present?
   end
