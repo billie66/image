@@ -52,19 +52,19 @@ html, body {
 .content {
   padding: 50px 0;
 }
-.course {
+.user {
   width: 300px;
   float: left;
   text-align: center;
 }
-.course img {
+.user img {
   margin: 10px 30px;
   padding: 15px;
   border: 1px solid #ddd;
   width: 172px;
   height: 172px;
 }
-.course .name {
+.user .name {
   padding: 10px 0;
 }
 .fileupload-wrapper {

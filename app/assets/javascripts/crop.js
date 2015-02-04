@@ -16,8 +16,8 @@ $(function() {
     reader.readAsDataURL(file);
 
     reader.onload = function() {
-        $('#course-cropbox')[0].src = this.result;
-        $('#course_dataurl')[0].value = this.result;
+        $('#user-cropbox')[0].src = this.result;
+        $('#user_dataurl')[0].value = this.result;
       }
 
     if (jcrop_api) {
@@ -27,18 +27,18 @@ $(function() {
     }
 
     $.colorbox({
-      href: '#course-crop-modal',
+      href: '#user-crop-modal',
       inline: true,
       onClosed: function(){
-        $("#course-cropbox").removeAttr("src");
-        $("#course-cropbox").removeAttr("style");
+        $("#user-cropbox").removeAttr("src");
+        $("#user-cropbox").removeAttr("style");
       }
     });
   }
 
   function init_jcrop() {
     $(document).bind('cbox_complete', function() {
-      $('#course-cropbox').Jcrop({  //options
+      $('#user-cropbox').Jcrop({  //options
         onChange: update_crop,
         onSelect: update_crop,
         setSelect: [0, 0, 172, 172],  //设置一个初选框的位置
@@ -51,13 +51,13 @@ $(function() {
   };
 
   function update_crop(coords) {
-    $("#course_crop_x").val(Math.round(coords.x));
-    $("#course_crop_y").val(Math.round(coords.y));
-    $("#course_crop_w").val(Math.round(coords.w));
-    $("#course_crop_h").val(Math.round(coords.h));
+    $("#user_crop_x").val(Math.round(coords.x));
+    $("#user_crop_y").val(Math.round(coords.y));
+    $("#user_crop_w").val(Math.round(coords.w));
+    $("#user_crop_h").val(Math.round(coords.h));
   }
 
   $('.modal-footer form').submit(function() {
-    $("#course-crop-btn").prop('disabled', true);
+    $("#user-crop-btn").prop('disabled', true);
   });
 });

@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  cover: MyString
+  avatar: MyString
 
 two:
   name: MyString
-  cover: MyString
+  avatar: MyString

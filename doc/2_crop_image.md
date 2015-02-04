@@ -21,7 +21,7 @@
 项目中裁剪图片的流程是，编辑课程时，若上传了图片，则会渲染 crop 模板，
 裁剪下面代码对应的图片：
 
-    <%= image_tag @course.cover_url(:large), id: "cropbox" %>
+    <%= image_tag @user.avatar_url(:large), id: "cropbox" %>
 
 同时会显示裁剪区域，相关代码查看 crop.html.erb 文件
 
@@ -33,8 +33,8 @@
 
 选择好合适的裁剪区域之后，点击裁剪按钮，这时会执行一个 callback：
 
-    def crop_cover
-      cover.recreate_versions!(:thumb) if crop_x.present?
+    def crop_avatar
+      avatar.recreate_versions!(:thumb) if crop_x.present?
     end
 
 根据裁剪区域重新生成图片的 thumb 版本。

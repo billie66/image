@@ -1,5 +1,5 @@
 $(function() {
-  $('.new-course').fileupload({
+  $('.new-user').fileupload({
     dataType: "script",
     add: function(e, data) {
       var file, types;

@@ -1,11 +1,11 @@
-<h1>Crop Course Cover</h1>
+<h1>Crop user avatar</h1>
 <div class="clearfix">
-  <div class="edit-course">
-    <%= image_tag @course.cover_url(:large), id: "cropbox" %>
+  <div class="edit-user">
+    <%= image_tag @user.avatar_url(:large), id: "cropbox" %>
   </div>
 </div>
 
-<%= form_for @course do |f| %>
+<%= form_for @user do |f| %>
   <% %w[x y w h].each do |attribute| %>
     <%= f.label "#{attribute}" %>
     <%= f.text_field "crop_#{attribute}" %><br>
@@ -25,10 +25,10 @@
     bgColor: 'white' // deal with images with png format, default is black
   })
   function update_crop(coords) {
-    $("#course_crop_x").val(Math.round(coords.x));
-    $("#course_crop_y").val(Math.round(coords.y));
-    $("#course_crop_w").val(Math.round(coords.w));
-    $("#course_crop_h").val(Math.round(coords.h));
+    $("#user_crop_x").val(Math.round(coords.x));
+    $("#user_crop_y").val(Math.round(coords.y));
+    $("#user_crop_w").val(Math.round(coords.w));
+    $("#user_crop_h").val(Math.round(coords.h));
   }
 </script>
 <% end %>

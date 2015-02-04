@@ -1,0 +1,7 @@
+<div class="content clearfix">
+  <div class="user">
+    <%= image_tag @user.avatar_url(:thumb) %><br>
+    <%= @user.name %><br>
+    <p><%= link_to "edit", edit_user_path %></p>
+  </div>
+</div>

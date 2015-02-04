@@ -1,11 +1,11 @@
-class Course < ActiveRecord::Base
-  mount_uploader :cover, CoverUploader
+class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
-  after_update :crop_cover
+  after_update :crop_avatar
 
-  def crop_cover
-    cover.recreate_versions!(:thumb) if crop_x.present?
+  def crop_avatar
+    avatar.recreate_versions!(:thumb) if crop_x.present?
   end
 
 # mothod to convert base64 image data url to binary image
@@ -16,6 +16,6 @@ class Course < ActiveRecord::Base
     # decode data and create stream on them
     io = CarrierStringIO.new(Base64.decode64(realdata))
 
-    self.cover = io
+    self.avatar = io
   end
 end
