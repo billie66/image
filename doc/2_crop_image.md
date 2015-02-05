@@ -18,14 +18,14 @@
 
 这样就可以在项目中使用 Jcrop 提供的功能了。
 
-项目中裁剪图片的流程是，编辑课程时，若上传了图片，则会渲染 crop 模板，
+项目中裁剪图片的流程是，编辑 user 时，若上传了图片，则会渲染 crop 模板，
 裁剪下面代码对应的图片：
 
     <%= image_tag @user.avatar_url(:large), id: "cropbox" %>
 
 同时会显示裁剪区域，相关代码查看 crop.html.erb 文件
 
-为了保存所裁剪区域的坐标，需要给课程添加四个属性，因为它们不与数据库字段关联，故使用 attr_accessor 方法，
+为了保存所裁剪区域的坐标，需要给 user 添加四个属性，因为它们不与数据库字段关联，故使用 attr_accessor 方法，
 
     attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 

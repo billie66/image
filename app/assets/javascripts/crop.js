@@ -1,24 +1,23 @@
 $(function() {
   var jcrop_api; // Holder for the jcrop API
   var inputFile = $("#fileupload")[0];
-  inputFile.addEventListener('click', function() {this.value = null;}, false);
+  inputFile.addEventListener('click', function() { this.value = null; }, false);
   inputFile.addEventListener('change', readData, false);
 
-  function readData(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
+  function readData(e) {
+    e.stopPropagation();
+    e.preventDefault();
 
-    var file = evt.dataTransfer !== undefined ? evt.dataTransfer.files[0] : evt.target.files[0];
+    var file = e.dataTransfer !== undefined ? e.dataTransfer.files[0] : e.target.files[0];
+    var imageType = /image.*/;
+    if (!file.type.match(imageType)) { return; }
+
     var reader = new FileReader();
-
-    if (!file.type.match(/image.*/)) { return; }
-
-    reader.readAsDataURL(file);
-
     reader.onload = function() {
-        $('#user-cropbox')[0].src = this.result;
-        $('#user_dataurl')[0].value = this.result;
-      }
+      $('#user-cropbox')[0].src = this.result;
+      $('#user_dataurl')[0].value = this.result;
+    }
+    reader.readAsDataURL(file);
 
     if (jcrop_api) {
       jcrop_api.destroy();

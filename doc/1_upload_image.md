@@ -17,7 +17,7 @@
 
     gem 'carrierwave', '~> 0.10.0'
 
-下面为课程创建一个 uploader 名为 avatar，运行下面的命令：
+下面为 user 创建一个 uploader 名为 avatar，运行下面的命令：
 
     rails generate uploader avatar
 
@@ -28,7 +28,7 @@
 
     include UploaderHelper
 
-然后把这个 uploader 挂载到课程的 avatar 属性下，在 user.rb 文件添加一行代码
+然后把这个 uploader 挂载到 user 的 avatar 属性下，在 user.rb 文件添加一行代码
 
     mount_uploader :avatar, avatarUploader
 
@@ -82,6 +82,6 @@ MiniMagick 依赖于 ImageMagick 命令行工具，所以要先安装 ImageMagic
 
 代码参考自 Rails 官方文档 [Uploading Files](http://guides.rubyonrails.org/form_helpers.html#uploading-files)。
 
-最后说一下操作流程，在本地把应用跑起来之后，访问 `localhost:3000/users/new` 页面创建一门新课程，
-课程创建成功后，会跳转到新建课程的展示页面，就能看到刚上传图片的 thumbnail 版本（200*200）。
+最后说一下操作流程，在本地把应用跑起来之后，访问 `localhost:3000/users/new` 页面创建一门新 user ，
+ user 创建成功后，会跳转到新建 user 的展示页面，就能看到刚上传图片的 thumbnail 版本（200*200）。
 
