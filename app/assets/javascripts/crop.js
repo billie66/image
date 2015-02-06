@@ -4,18 +4,15 @@ $(function() {
   inputFile.addEventListener('click', function() { this.value = null; }, false);
   inputFile.addEventListener('change', readData, false);
 
-  function readData(e) {
-    e.stopPropagation();
-    e.preventDefault();
-
-    var file = e.dataTransfer !== undefined ? e.dataTransfer.files[0] : e.target.files[0];
+  function readData(evt) {
+    var file = evt.target.files[0];
     var imageType = /image.*/;
     if (!file.type.match(imageType)) { return; }
 
     var reader = new FileReader();
-    reader.onload = function() {
-      $('#user-cropbox')[0].src = this.result;
-      $('#user_dataurl')[0].value = this.result;
+    reader.onload = function(e) {
+      $('#user-cropbox')[0].src = e.target.result;
+      $('#user_dataurl')[0].value = e.target.result;
     }
     reader.readAsDataURL(file);
 
