@@ -9,20 +9,6 @@ $(function() {
     $("#user_crop_h").val(Math.round(coords.h));
   }
 
-  function init_jcrop() {
-    $(document).bind('cbox_complete', function() {
-      $('#user-cropbox').Jcrop({  //options
-        onChange: update_crop,
-        onSelect: update_crop,
-        setSelect: [0, 0, 172, 172],  //设置一个初选框的位置
-        aspectRatio: 1,  //设置选择框高宽比,默认为任意
-        bgColor: 'white'
-        }, function(){
-        jcrop_api = this; // grab the jcrop API
-      });
-    });
-  };
-
   function readData(evt) {
     var file = evt.target.files[0];
     var imageType = /image.*/;
@@ -36,15 +22,24 @@ $(function() {
     reader.readAsDataURL(file);
 
     if (jcrop_api) {
-      // remove Jcrop from one image then can use it with another image
+      // remove Jcrop from element then can use it with another image
       jcrop_api.destroy();
-    } else {
-      init_jcrop();
     }
 
     $.colorbox({
       href: '#user-crop-modal',
       inline: true,
+      onComplete: function(){
+        $('#user-cropbox').Jcrop({  //options
+          onChange: update_crop,
+          onSelect: update_crop,
+          setSelect: [0, 0, 172, 172],  //设置一个初选框的位置
+          aspectRatio: 1,  //设置选择框高宽比,默认为任意
+          bgColor: 'white'
+          }, function(){
+          jcrop_api = this; // grab the jcrop API
+        });
+      },
       onClosed: function(){
         $("#user-cropbox").removeAttr("src");
         $("#user-cropbox").removeAttr("style");
