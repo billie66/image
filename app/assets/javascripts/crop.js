@@ -18,7 +18,7 @@ $(function() {
         aspectRatio: 1,  //设置选择框高宽比,默认为任意
         bgColor: 'white'
         }, function(){
-        jcrop_api = this;
+        jcrop_api = this; // grab the jcrop API
       });
     });
   };
@@ -36,6 +36,7 @@ $(function() {
     reader.readAsDataURL(file);
 
     if (jcrop_api) {
+      // remove Jcrop from one image then can use it with another image
       jcrop_api.destroy();
     } else {
       init_jcrop();
