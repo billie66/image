@@ -48,7 +48,7 @@ def update_attrs(user, params)
   user.crop_y = params[:user][:crop_y]
   user.crop_w = params[:user][:crop_w]
   user.crop_h = params[:user][:crop_h]
-  user.avatar = user.avatar
+  user.avatar = user.avatar // must reassign avatar
   user.save
 end
 
