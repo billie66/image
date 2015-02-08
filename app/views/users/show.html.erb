@@ -1,4 +1,8 @@
-<div class="content clearfix">
+<div class="home-link">
+  <%= link_to "Home", root_path %>
+</div>
+
+<div class="content clearfix show-page">
   <div class="user">
     <%= image_tag @user.avatar_url, id: "avatar" %><br>
     <%= @user.name %><br>

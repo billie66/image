@@ -50,7 +50,7 @@ html, body {
   padding: 30px;
 }
 .content {
-  padding: 50px 0;
+  padding: 40px 0;
 }
 .user {
   width: 300px;
@@ -67,9 +67,17 @@ html, body {
 .user .name {
   padding: 10px 0;
 }
+.show-page .user {
+  float: none;
+  margin: 0 auto;
+}
+.home-link {
+  padding-top: 30px;
+  padding-left: 30px;
+}
 .new-user-btn {
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 .fileupload-wrapper {
   text-align: center;
