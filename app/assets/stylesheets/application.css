@@ -67,6 +67,10 @@ html, body {
 .user .name {
   padding: 10px 0;
 }
+.new-user-btn {
+  text-align: center;
+  padding-bottom: 30px;
+}
 .fileupload-wrapper {
   text-align: center;
   padding-bottom: 50px;

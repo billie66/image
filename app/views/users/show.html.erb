@@ -1,7 +1,36 @@
 <div class="content clearfix">
   <div class="user">
-    <%= image_tag @user.avatar_url(:thumb) %><br>
+    <%= image_tag @user.avatar_url, id: "avatar" %><br>
     <%= @user.name %><br>
-    <p><%= link_to "edit", edit_user_path %></p>
+    <p><%#= link_to "edit", edit_user_path %></p>
+  </div>
+</div>
+
+<div class="fileupload-wrapper">
+  <div class="fileupload-btn button primary">
+    <%= label_tag :avatar, "update avatar" %>
+    <%= file_field_tag :avatar, id: "fileupload" %>
+  </div>
+</div>
+
+<div style="display: none;">
+  <div id="user-crop-modal" class="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-label">Crop avatar</h3>
+    </div>
+    <div class="modal-body">
+      <div class="user-crop-box">
+        <%= image_tag '', :id => "user-cropbox" %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= form_for @user, remote: true do |f| %>
+        <% %w[x y w h].each do |attribute| %>
+          <%= f.hidden_field "crop_#{attribute}" %><br>
+        <% end %>
+        <%= f.hidden_field :avatar, :id => "user_dataurl" %>
+        <%= f.submit "Crop and save", :id => "user-crop-btn", :class => "button primary right" %>
+      <% end %>
+    </div>
   </div>
 </div>
