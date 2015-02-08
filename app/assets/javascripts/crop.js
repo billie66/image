@@ -47,8 +47,10 @@ $(function() {
     });
   }
 
-  inputFile.addEventListener('click', function() { this.value = null; }, false);
-  inputFile.addEventListener('change', readData, false);
+  if (inputFile) {
+    inputFile.addEventListener('click', function() { this.value = null; }, false);
+    inputFile.addEventListener('change', readData, false);
+  }
 
   $('.modal-footer form').submit(function() {
     $("#user-crop-btn").prop('disabled', true);
