@@ -23,20 +23,20 @@ class UsersController < ApplicationController
   end
 
   def update
-      if params[:user][:avatar].present?
-        if params[:user][:avatar].class.to_s == "String"
-          update_attrs(@user, params)
-          respond_to do |format|
-            format.js
-          end
-        else
-          @user.update(user_params)
-          render 'crop'
+    if params[:user][:avatar].present?
+      if params[:user][:avatar].class.to_s == "String"
+        update_attrs(@user, params)
+        respond_to do |format|
+          format.js
         end
       else
         @user.update(user_params)
-        redirect_to @user
+        render 'crop'
       end
+    else
+      @user.update(user_params)
+      redirect_to @user
+    end
   end
 end
 
