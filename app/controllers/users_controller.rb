@@ -43,12 +43,14 @@ end
 private
 
 def update_attrs(user, params)
-  user.image_data = params[:user][:avatar]
   user.crop_x = params[:user][:crop_x]
   user.crop_y = params[:user][:crop_y]
   user.crop_w = params[:user][:crop_w]
   user.crop_h = params[:user][:crop_h]
-  user.avatar = user.avatar # must reassign avatar
+  # write avatar and the line must be below the above four statements
+  # or you can't get the image cropped, but all versions of the image
+  # with the same size.
+  user.image_data = params[:user][:avatar]
   user.save
 end
 
