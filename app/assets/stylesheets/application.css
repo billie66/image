@@ -12,6 +12,7 @@
  *
  *= require jquery.Jcrop.min
  *= require jquery.colorbox-example1
+ *= require qiniu_direct_uploader
  *= require_tree .
  *= require_self
  */
