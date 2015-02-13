@@ -4,7 +4,6 @@ $(document).ready ->
   photoForm = $("form#photograph-uploader")
   if photoForm.length > 0
     photoForm.QiniuUploader
-      # see also  https://github.com/blueimp/jQuery-File-Upload/wiki/Options
       autoUpload: true
       singleFileUploads: false
       limitMultiFileUploads: 2

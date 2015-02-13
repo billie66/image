@@ -53,19 +53,19 @@ html, body {
 .content {
   padding: 40px 0;
 }
-.user {
+.user, .photo {
   width: 300px;
   float: left;
   text-align: center;
 }
-.user img {
+.user img, .photo img {
   margin: 10px 30px;
   padding: 15px;
   border: 1px solid #ddd;
   width: 172px;
   height: 172px;
 }
-.user .name {
+.user .name, .photo .name{
   padding: 10px 0;
 }
 .show-page .user {
