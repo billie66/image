@@ -24,3 +24,6 @@ gem 'jcrop-rails-v2', '~> 0.9.12'
 
 # A jQuery lightbox
 gem 'jquery-colorbox-rails'
+
+# Upload to qiniu directly
+gem 'qiniu_direct_uploader'
