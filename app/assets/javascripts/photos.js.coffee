@@ -6,18 +6,18 @@ $(document).ready ->
     photoForm.QiniuUploader
       autoUpload: true
       singleFileUploads: false
+      #removeProgressBarWhenCompleted: false
       limitMultiFileUploads: 2
-      customCallbackData: {"xyz": 100}
+      customCallbackData: { "xyz": 100 }
       onFilesAdd: (file) ->
-        if file.type != "image/jpeg" and file.type != "image/png" and file.type != "image/gif"
-          alert('please select image')
-          return false
+        types = /(\.|\/)(gif|jpe?g|png)$/i;
+        if types.test(file.type) || types.test(file.name)
+          $(".fileupload-btn").slideToggle("slow")
         else
-          return true
+          alert("" + file.name + " is not a gif, jpeg, or png image file")
 
     photoForm.bind "ajax:success", (e, data) ->
-      console.log('success')
-      console.log(data)
+      $(".fileupload-btn").slideToggle("slow")
 
     photoForm.bind "ajax:failure", (e, data) ->
       console.log('failure')
