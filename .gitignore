@@ -19,3 +19,4 @@ secrets.yml
 /public/uploads
 *.sublime-*
 clean
+qiniu.rb
