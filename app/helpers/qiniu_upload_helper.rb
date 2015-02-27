@@ -22,7 +22,7 @@ module QiniuUploadHelper
   class QiniuUploader
     def initialize(options)
       @options = options.reverse_merge(
-        expires_in:         360,
+        expires_in:         3600,
         ssl:                false,
         custom_fields:      {},
         submit_button_id:   nil,
@@ -75,10 +75,10 @@ module QiniuUploadHelper
       fields_array.push '"fname": $(fname)'
       fields_array.push '"fsize": $(fsize)'
       fields_array.push '"mimeType": $(mimeType)'
-      fields_array.push '"imageInfo": $(imageInfo)'
       fields_array.push '"exif": $(exif)'
       fields_array.push '"endUser": $(endUser)'
       fields_array.push '"key": $(key)'
+      fields_array.push '"avinfo": $(avinfo)'
 
       custom_fields_array = []
       @options[:custom_fields].each do |k,v|

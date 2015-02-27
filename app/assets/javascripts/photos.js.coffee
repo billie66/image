@@ -6,7 +6,6 @@ $(document).ready ->
     photoForm.QiniuUploader
       autoUpload: true
       singleFileUploads: false
-      #removeProgressBarWhenCompleted: false
       limitMultiFileUploads: 2
       customCallbackData: { "xyz": 100 }
       onFilesAdd: (file) ->
